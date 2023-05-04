@@ -1,0 +1,3 @@
+side= pour pack() et les ascenseurs, ou justify="" pour les textes, acceptent Tkinter.TOP , Tkinter.RIGHT , Tkinter.BOTTOM et Tkinter.LEFT , ou le contenu de ces constantes "top" , "right" , "bottom" et "left" . 
+compound (voir Boutons) accepte en outre les constantes Tkinter.CENTER et Tkinter.NONE , ou leur contenu "center" et "none" . 
+anchor= , utilisé dans le positionnement des images reçoit les constantes basées sur les points cardinaux: Tkinter.N , Tkinter.NE , Tkinter.E , Tkinter.SE , Tkinter.S , Tkinter.SW , Tkinter.W , Tkinter.NW , Tkinter.CENTER ou leur contenu: "n" , "ne" , "e" , "se" ,"s" , "sw" , "w" , "nw" et "center" . orient= reçoit les constantes Tkinter.VERTICAL ou Tkinter.HORIZONTAL , qui correspondent aux chaînes "vertical" ou "horizontal"

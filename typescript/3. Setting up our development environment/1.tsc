@@ -1,0 +1,6 @@
+//verifier la version de nodejs
+node -v
+
+//install typescript
+npm install -g typescript
+

@@ -1,0 +1,10 @@
+type	cal	sodium
+beef	180	56
+beef	2	56
+beef	180	52
+beef	79	56
+beef	180	56
+beef	21	56	
+meat	180	56
+goat	23	56
+pig	456	100

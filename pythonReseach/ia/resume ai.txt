@@ -1,0 +1,52 @@
+﻿#convoulution over 2D
+
+2 ) to have vertical edge is the convolution a*b in grayscale images filter([1,1,1],[0,0,0],[-1,-1,-1]) give verical egde
+
+3) horizontal adge or light images en plus ([1,0,-1],[1,0,-1],[1,0,-1]) sobel filter ([1,2,1],[0,0,0,],[-1,-2,-1])
+filter are parameters 
+
+4) (n*n) * (f*f) filter give (n-f+1) * (n-f+1) paading an image is to add (n+1)*(n+1)images 
+and when you padd results become p=padding=1 (n+2p-f+1) * (n+2p-f+1)
+valid and same convolution mean nom padding ex: previously (n*n)*(f*f)
+same convolution is to pad so that the output size is same with input(n+2p-f+1) * (n+2p-f+1) it will give same size if you resolve an get  => p=(f-1)/2
+filter is usaly oded value 1*1; 3*3; 5*5; 7*7
+
+5)stride convoulution is to jump eg stride=2 index in the input mathrix bafore convolute operation the (n*n)*(f*f)=>(((n+2p-f)/s)+1)*(((n+2p-f)/s)+1)
+sometimes when the output operation give decimal that mean that we'he overpass the mathix, to resolve it just rounding down wtih floor [7]=floor(7)
+in machine learning croos correlation is the convolution operator
+
+
+#convolution over 3Dimensionnal volumees
+
+6) (6*6*3) three corresponds to the three color channel we'll convolute with filter (3*3*3) 3 layers of filter corresponding to colr channel of input
+the first 6 is height the 2nd is the weight and the 3 is #channels the ouput of this convolute opration is an output wuith (4*4) image
+if we want oto detect at all vertical and horizontal edge we convoulte two time by the filter (3*3*3) but the way to calculate it will be diferent and we will obtain a (4*4*2)image by combinig the two filter
+summary: we obtain size filter by ((n-f+1)/4)*((n-f+1)/4)*nunber#ch. with what have seen before that mean that nunber#ch will be also the number of #filter with combinig
+in programming peopple call that the death of the neural network taht is the size of 3rd 3Dimensionnal filter
+
+
+7)now to convert our (3*3*3) to obtain a layer after we add a bayers(€R real number) and apply a non linearity to filter mathrix and obtain afilters(4*4*2) size
+when we combine the horizontal edge and the vertical egde filter we obtain a (4*4*2) filter so all these operation and mathrix give us what we call a layer in convolutionnal network
+th formular of non linearity is z[i]=w[i]a[0]+b[i] that the input is a[i], the two filter of fearures are w[i] the linearity is thsi formular below with b[i] as baes. the convolution of input with filter give a lineariity functon wich is "w[i]a[i]", we add baers to change into non-linearity
+if we have 10 features/filterwe will obtain an ouput (4*4*10)'size. each filter has (3*3*3) 27 parameters or 27 number to be learn plus the bias taht give 28parameters , we can imagine that if we have 10 feature we will have 280 parameters 
+notice one think interresting about that is no matter of the size of input may 5000*5000 no matter the number of feature steal remain the same and you can use it like that detect horizontal/vertical edges or many other features you can apply it in very large uimage the parameters remain the same
+f[l] s the filter size [l] reffer here to layer; p[l] padding ; s[l] the stride. the input (nh[l-1] * nw[l-1] * n#ch[l-1]). the output (nh[l] * nw[l] * n#ch[l]) the output nh[l] =(((nh[l+1] + 2p -f[l])/s)+1).
+nc[l] reffer to the number of filters, each filter is f[l]*f[l] * nc[i-1]; the filter or ouput is called activation and is given size is a[l]=>nh[l] * nw[l] * nc[l]; weight f[l]*f[l]*nc[l-1]*nc[l] wich nc[l] is the number of filter in layer l; bias nc[l] represent by a four dimensionnal tensor or mathrix (l,l,l,nc[l])
+the think to understand here is that the output or activation of one laye(neuronne) will be use with activation of another layer that form neuronnal relationship
+
+8) what i undertood is that a convNet or convolutionnal network is suite of many operation of a layers at the end of this suit we have the maximum number of parameters all these suite is called a veector softmax  ^y which is the real output or the final predictive of the neural network
+so what we'have seen is what we called convNet , it's already exist others which are pooling network and fully connected network that we will see in other week they pretty easy to define that conv
+
+9) The max pooling is another type of coinvNet it consist to take an input,select a tensor or a mathrix and take the max of the pool to construct another output wcich is basecaly given by ((n+2p-f)/s)+1).3 if the max pool is on 2D or 3D the nombre of channel of the input should be the same to the output and each amx depend of the channel
+average pooling take less ressourvces in a neural network than max pooling like his name describe it consist to select the average of each tensor or mathrix and it collapse to reduite a (7*7*100)images to an (1*1*1000)image that consideraly reduce the size of the image
+summary of pooling: average polling will almost take two filter f=2 s=2 at max and no padding here so his output formular will be transform to (n-f+1)/s. something else to notice is that pollong does'nt take parameters
+
+10)when you take an image and wanna detect what's on like a number or a cat the first thing you do , is that you have many type of convNet that you can use the first is convNet after we use yhe pool, after the convNet and the pool then the full connect that you can attrobute a variable but we will see after how you can find this number.
+the thing to notice herre is that where you convolute the size decrease decrease and decrease at the end you cn evaluate the number of parameters per convNet uses, the activation size/activation size after each conNet  
+
+11) the parametter is equals to the filter + 1 times the stride
+why convolution to other just simply because convolution give a sparsity of data in our tensor so that each tensor code for one in the output tensor not affecting other
+because the fact of big number that can not train a big number we can use gradient decend to optimise convolution
+
+//deuxiemme semaine de formatiion
+12)classic networks: let-net-5 ; alexNet; VGG after looking this next case of building you wil be able to build your own application alone

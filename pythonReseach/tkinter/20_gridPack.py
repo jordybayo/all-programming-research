@@ -1,0 +1,20 @@
+import tkinter
+def afficher(): # interroge et affiche la valeur retour  
+    print (retour0.get())
+racine0=tkinter.Tk() 
+cadre0=tkinter.Frame(racine0)
+# titre pour chaque ligne 
+tkinter.Label(cadre0, text=" 1er").grid(row=0, column=0) 
+tkinter.Label(cadre0, text=" 2nd").grid(row=0, column=1) 
+tkinter.Label(cadre0, text=" 3e").grid(row=0, column=2)
+retour0=tkinter.IntVar() 
+bouton1=tkinter.Radiobutton(cadre0, text="Oui", variable=retour0, value=1) 
+bouton2=tkinter.Radiobutton(cadre0, text="Bof", variable=retour0, value=3) 
+bouton3=tkinter.Radiobutton(cadre0, text="Non", variable=retour0, value=2)
+bouton1.grid(row=1, column=0) 
+bouton2.grid(row=2, column=1) 
+bouton3.grid(row=1, column=2)
+cadre0.pack(side=tkinter.TOP)
+bouton0=tkinter.Button(racine0, text="Cliquer", command=afficher) 
+bouton0.pack(side=tkinter.BOTTOM)
+racine0.mainloop() 

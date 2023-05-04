@@ -1,0 +1,1 @@
+ #coding:utf-8print('je suis en python ')print("je suis python 2")print("je suis \tpython 3 ")print("je suis \n python 4")print("je suis python 5 ")#je suis un commentaire sur une ligne"""je suisun co-mmentaire multiligne"""

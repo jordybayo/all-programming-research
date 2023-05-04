@@ -1,0 +1,40 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<!-- Toolbar -->
+
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
+      <li routerLinkActive="active"><a routerLink="devices">Deivices</a></li>
+      <li routerLinkActive="active"><a routerLink="edit">Nouvel apareil</a></li>
+      <li routerLinkActive="active"><a routerLink="users">Utilisateurs</a></li>
+    </ul>
+    <div class="navbar-right">
+      <p>Vous ets connecte depuis {{ secondes }} secondes</p>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<!--Body-->
+<div class="content" role="main">
+<div class="container">
+  <div class="row">
+    <router-outlet></router-outlet> 
+  </div>
+</div>
+
+
+

@@ -1,0 +1,2 @@
+La majorité des wigdets peuvent afficher un type de relief avec le paramètre relief= défini par les constantes Tkinter.RAISED (élevé), Tkinter.SUNKEN (enfoncé), Tkinter.FLAT (plat, par défaut), Tkinter.GROOVE (rainure) ou Tkinter.RIDGE (crête), ou leur contenu: "raised" , "sunken" , "flat" , "groove" ou "ridge" . Les simples boutons à cliquer disposent déjà du type "raised" avec une animation "sunken" lors du clic gauche. borderwidth= ou bd= permet de préciser la grosseur des traits.
+L'image ci-contre a été réalisée avec bd=3 (ou bd="3" ). 

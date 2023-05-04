@@ -1,0 +1,21 @@
+<div class="col-xs-12">
+    <h2>Mes appareils </h2>
+
+    <p>Mis a jour {{ lastUpdate | async | date :"short"}}</p>
+    <!--<p>Mis a jour {{ lastUpdate | date :"short" | upperCase}}</p>-->
+
+    <ul class="list-group">
+      <app-devices *ngFor="let device of devices; let i = index"
+                   [indexOfDevice] = "i"
+                   [deviceName]="device.name"
+                   [deviceStatus]="device.status"
+                   [id]="device.id">
+                   </app-devices>
+    </ul>
+    <button class="btn btn-success" 
+            [disabled]="!isAuth"
+            (click)="onAllumer()">Tout allumer</button>
+
+    <button class="btn btn-danger" 
+            (click)="onEteindre()">Tout eteindre</button>
+</div>
